@@ -17,8 +17,16 @@ console.log(longestWord('')); // ''
 */
 
 let longestWord = function(sentence) {
-    // Your code here
+
+    let array = sentence.split(" ");
+    let nonEmpty = array.filter( word => word.length > 0 ? word: " ");
+    return nonEmpty.reduce((acc, el) => (acc.length >= el.length ? acc:el), nonEmpty[0]);
+    
 };
+
+console.log(longestWord('where did everyone go')); // 'everyone'
+console.log(longestWord('prefer simplicity over complexity')); // 'simplicity'
+console.log(longestWord('')); // ''
 
 // Your code here
 
@@ -28,4 +36,4 @@ try {
     module.exports = longestWord;
 } catch (e) {
     module.exports = null;
-}
+}

@@ -14,10 +14,21 @@ console.log(hasThreeVowels('bootcamp'));        //  false
 console.log(hasThreeVowels('dog'));             //  false
 console.log(hasThreeVowels('go home'));         //  false
 
+
 */
 
 let hasThreeVowels = function(string) {
-    // Your code here
+    let array = string.split("");
+    let vowels = "aeiouAEIOU";
+    let prev = [];
+
+    array.forEach(element => {
+       
+        if(vowels.includes(element) && !prev.includes(element) && prev.length <= 3) {
+            prev.push(element);
+        }
+    });
+    return prev.length >= 3;
 };
 
 // Your code here
@@ -28,4 +39,4 @@ try {
     module.exports = hasThreeVowels;
 } catch (e) {
     module.exports = null;
-}
+}

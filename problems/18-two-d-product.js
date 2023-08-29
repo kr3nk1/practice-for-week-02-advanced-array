@@ -25,13 +25,24 @@ console.log(twoDimensionalProduct(arr2)); // 88
 
 */
 
-let twoDimensionalProduct = function(arr) {
-    // Your code here
+/* let twoDimensionalProduct = function (arr) {
+  let totalProduct = 1;
+  arr.forEach(element => {
+    const subArrayProduct = element.reduce((acc, num) => acc * num, 1);
+    totalProduct *= subArrayProduct;
+  });
+  return totalProduct;
+}; */
+let twoDimensionalProduct = function (arr) {
+  return arr.reduce((totalProduct, subArray) =>
+    totalProduct * subArray.reduce((acc, num) => acc * num, 1), 1)
+
 };
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
-    module.exports = twoDimensionalProduct;
+  module.exports = twoDimensionalProduct;
 } catch (e) {
-    module.exports = null;
+  module.exports = null;
 }
